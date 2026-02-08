@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2 - Quản Lý Công Việc</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>📝 Quản Lý Công Việc</h2>
+
+<div class="todo-container">
+  <div class="todo-header">
+    <input id="todoInput" type="text" placeholder="Nhập công việc cần làm...">
+    <button onclick="addTodo()">➕ Thêm</button>
+  </div>
+  
+  <div class="todo-stats">
+    <span id="totalTasks">Tổng cộng: 0</span>
+    <span id="completedTasks">Hoàn thành: 0</span>
+  </div>
+  
+  <div id="todoList" class="todo-list">
+    <!-- Danh sách công việc sẽ được render ở đây -->
+  </div>
+  
+  <div class="todo-actions">
+    <button onclick="clearCompleted()">🗑️ Xóa đã hoàn thành</button>
+    <button onclick="clearAll()">🔄 Xóa tất cả</button>
+  </div>
+</div>
+
+<div class="explanation">
+  <h3>Giải thích logic tư duy:</h3>
+  <h4>1. Xử lý mảng state:</h4>
+  <p>- Sử dụng mảng <code>todos</code> để lưu trữ danh sách công việc</p>
+  <p>- Mỗi todo có cấu trúc: <code>{ id, text, completed, createdAt }</code></p>
+  <p>- ID tự động tăng để đảm bảo tính duy nhất</p>
+  <p>- Sử dụng <code>localStorage</code> để lưu trữ dữ liệu bền vững</p>
+  
+  <h4>2. Render lại DOM hiệu quả:</h4>
+  <p>- Chỉ render lại khi dữ liệu thay đổi thực sự</p>
+  <p>- Sử dụng <code>innerHTML</code> để render toàn bộ danh sách thay vì thao tác DOM từng phần</p>
+  <p>- Tối ưu hóa bằng cách lưu trữ ID todo trong <code>data-id</code> attribute</p>
+  <p>- Cập nhật thống kê sau mỗi thao tác để người dùng có phản hồi ngay lập tức</p>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

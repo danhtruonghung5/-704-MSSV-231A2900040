@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 3 - Game Đoán Số</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>🎯 Game Đoán Số (1–100)</h2>
+
+<div class="game-container">
+  <div class="input-section">
+    <input id="guess" type="number" min="1" max="100" placeholder="Nhập số từ 1 đến 100">
+    <button onclick="checkGuess()">Đoán</button>
+    <button onclick="resetGame()">Chơi lại</button>
+  </div>
+  
+  <div class="result-section">
+    <p id="result" class="message"></p>
+    <p id="count" class="attempts"></p>
+  </div>
+  
+  <div class="stats">
+    <p>Phạm vi: <strong>1 - 100</strong></p>
+    <p>Chỉ dẫn: <span id="hint" class="hint"></span></p>
+  </div>
+</div>
+
+<div id="fireworks" class="fireworks-container"></div>
+
+<div class="explanation">
+  <h3>Giải thích logic tư duy:</h3>
+  <h4>1. Tạo số ngẫu nhiên:</h4>
+  <p>- Sử dụng <code>Math.random()</code> để tạo số thập phân 0-1</p>
+  <p>- Công thức: <code>Math.floor(Math.random() * 100) + 1</code></p>
+  <p>- <code>Math.random() * 100</code>: tạo số 0-99.999...</p>
+  <p>- <code>Math.floor()</code>: làm tròn xuống thành số nguyên</p>
+  <p>- <code>+ 1</code>: dịch chuyển phạm vi thành 1-100</p>
+  
+  <h4>2. Xử lý nhập để tránh lỗi:</h4>
+  <p>- Kiểm tra giá trị rỗng hoặc không hợp lệ</p>
+  <p>- Giới hạn input bằng <code>min="1" max="100"</code></p>
+  <p>- Chuyển đổi sang số nguyên bằng <code>Number()</code></p>
+  <p>- Kiểm tra phạm vi hợp lệ trước khi xử lý</p>
+  <p>- Reset game khi đoán đúng để tránh lỗi</p>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

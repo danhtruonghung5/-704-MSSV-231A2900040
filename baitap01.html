@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1 - Carousel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Carousel hình ảnh</h2>
+
+<div class="carousel-container">
+  <div class="carousel">
+    <div class="slides">
+      <img src="images/anh01.jpg" alt="Hình ảnh 1">
+      <img src="images/anh02.jpg" alt="Hình ảnh 2">
+      <img src="images/anh03.jpg" alt="Hình ảnh 3">
+      <img src="images/anh04.jpg" alt="Hình ảnh 4">
+      <img src="images/anh05.jpg" alt="Hình ảnh 5">
+      <img src="images/anh06.jpg" alt="Hình ảnh 6">
+    </div>
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+  
+  <div class="dots-container">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <span class="dot" data-index="3"></span>
+    <span class="dot" data-index="4"></span>
+    <span class="dot" data-index="5"></span>
+  </div>
+</div>
+
+<div class="explanation">
+  <h3>Giải thích logic tư duy:</h3>
+  <h4>1. Xử lý index để tránh ngoài giới hạn:</h4>
+  <p>- Sử dụng công thức: <code>index = (index + step + total) % total</code></p>
+  <p>- Khi index âm: cộng total để đưa về dương, rồi chia dư để quay vòng</p>
+  <p>- Khi index vượt quá: chia dư để quay về đầu</p>
+  <p>- Ví dụ: index = -1 → (-1 + 6 + 6) % 6 = 5 (quay về slide cuối)</p>
+  
+  <h4>2. Tối ưu performance:</h4>
+  <p>- Chỉ thay đổi <code>transform: translateX()</code> thay vì thay đổi layout</p>
+  <p>- Sử dụng <code>will-change: transform</code> để GPU acceleration</p>
+  <p>- Tự động pause khi hover để tiết kiệm tài nguyên</p>
+  <p>- Sử dụng <code>requestAnimationFrame</code> cho animation mượt mà</p>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
